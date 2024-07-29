@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Card = ({name, email, phone, address}) => {
     return (
-        <div className="card" style="width: 18rem;">
+        <div className="card"style={{width: "18rem"}}>
             <img src="https://cdn.pixabay.com/photo/2016/11/23/00/57/adult-1851571_1280.jpg" className="card-img-top" alt="..."/>
                 <div className="card-body">
                     <h5 className="card-title">{name}</h5>

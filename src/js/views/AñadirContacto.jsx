@@ -8,14 +8,14 @@ const AñadirContacto = () => {
     const [address, setAddress] = useState("")
     const { store, actions } = useContext(Context)
     return (
-        <div>
-            <label htmlFor="">Full Name</label>
-            <input type="text" onChange={(evento) => setName(evento.target.value)} />
-            <label htmlFor="">Email</label>
+        <div className="row">
+            
+            <input className="col-12" type="text" onChange={(evento) => setName(evento.target.value)} />
+            <label>Email</label>
             <input type="text" onChange={(evento) => setEmail(evento.target.value)} />
-            <label htmlFor="">Phone</label>
+            <label>Phone</label>
             <input type="text" onChange={(evento) => setPhone(evento.target.value)} />
-            <label htmlFor="">Address</label>
+            <label>Address</label>
             <input type="text" onChange={(evento) => setAddress(evento.target.value)} />
             <button onClick={() => actions.crearContacto(name, phone, email, address)}>Enviar contacto</button>
         </div>

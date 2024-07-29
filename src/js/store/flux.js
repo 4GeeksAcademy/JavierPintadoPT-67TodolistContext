@@ -25,7 +25,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 .then(resp => resp.json())
                 .then(data => setStore({contactos: data.contacts}))
             },
-            crearContacto: ({name, phone, email, address}) => {
+            crearContacto: (name, phone, email, address) => {
                 const nombreUsuario = 'Javier-Pintado'
                 fetch(`https://playground.4geeks.com/contact/agendas/${nombreUsuario}/contacts`, {
                     method: 'POST',

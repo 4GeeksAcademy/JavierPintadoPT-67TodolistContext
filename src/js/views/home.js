@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
 import { useContext } from "react"
 import Card from "../component/Card.jsx";
-import AñadirContacto from "./AñadirContacto";
+import AñadirContacto from "./AñadirContacto.jsx";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context)
@@ -15,6 +15,7 @@ export const Home = () => {
 
 		actions.crearUsuario();
 		actions.traerContactos();
+		
 	}, [])
 
 	return(
@@ -27,7 +28,7 @@ export const Home = () => {
 					address={contacto.address} 
 					email={contacto.email} 
 				/>)
-			}
+			} 
 		</div>
 	)
 
