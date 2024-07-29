@@ -3,7 +3,7 @@ import rigoImage from "../../img/rigo-baby.jpg";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
 import { useContext } from "react"
-import Card from "../component/Card";
+import Card from "../component/Card.jsx";
 import AñadirContacto from "./AñadirContacto";
 
 export const Home = () => {

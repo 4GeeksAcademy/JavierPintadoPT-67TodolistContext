@@ -1,5 +1,5 @@
 import React from "react";
-import css from
+
 const Card = ({name, email, phone, address}) => {
     return (
         <div className="card" style="width: 18rem;">
