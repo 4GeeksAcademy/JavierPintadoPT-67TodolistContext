@@ -15,12 +15,14 @@ export const Home = () => {
 
 		actions.crearUsuario();
 		actions.traerContactos();
+		actions.eliminarContacto();
+		actions.editarContacto();
 		
 	}, [])
 
 	return(
 		<div className="text-center mt-5">
-			<h1>Contact List</h1>
+			<h1>Lista de contactos</h1>
 			{store.contactos.map((contacto) => 
 				<Card 
 					name={contacto.name} 
