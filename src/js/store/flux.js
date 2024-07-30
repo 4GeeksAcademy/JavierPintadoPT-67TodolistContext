@@ -44,10 +44,10 @@ const getState = ({ getStore, getActions, setStore }) => {
                 .then(data => data)
                 .catch(error => console.log(error))
             },
-            eliminarContacto: (contactId) => {
+            eliminarContacto:(name, phone, email, address) => {
                 const nombreUsuario = 'Javier-Pintado';
-                fetch(`https://playground.4geeks.com/contact/${contactId}`, { // Realiza una solicitud DELETE a la API para eliminar el contacto específico
-                    method: 'DELETE', // Método DELETE
+                fetch(`https://playground.4geeks.com/contact/agendas/${nombreUsuario}/delete`, {
+                    method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json'
                     }
@@ -64,7 +64,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             editarContacto: (contactId, name, phone, email, address) => { // Añadir la función editarContacto
                 const nombreUsuario = 'Javier-Pintado';
-                fetch(`https://playground.4geeks.com/contact/${contactId}`, { // Realiza una solicitud PUT a la API para editar el contacto específico
+                fetch(`https://playground.4geeks.com/contact/agendas/${nombreUsuario}/put`, { // Realiza una solicitud PUT a la API para editar el contacto específico
                     method: 'PUT', // Método PUT
                     headers: {
                         'Content-Type': 'application/json'

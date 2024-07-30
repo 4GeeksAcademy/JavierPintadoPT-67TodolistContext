@@ -22,9 +22,11 @@ export const Home = () => {
 
 	return(
 		<div className="text-center mt-5">
+			
 			<h1>Lista de contactos</h1>
 			{store.contactos.map((contacto) => 
 				<Card 
+					className="container-text-center"
 					name={contacto.name} 
 					phone={contacto.phone} 
 					address={contacto.address} 
