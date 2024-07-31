@@ -15,14 +15,15 @@ export const Home = () => {
 
 		actions.crearUsuario();
 		actions.traerContactos();
-		actions.eliminarContacto();
-		actions.editarContacto();
+		
 		
 	}, [])
 
 	return(
 		<div className="text-center mt-5">
-			
+			<link to="/AñadirContacto">
+				
+			</link>
 			<h1>Lista de contactos</h1>
 			{store.contactos.map((contacto) => 
 				<Card 
@@ -31,6 +32,7 @@ export const Home = () => {
 					phone={contacto.phone} 
 					address={contacto.address} 
 					email={contacto.email} 
+					id={contacto.id}
 				/>)
 			} 
 		</div>

@@ -2,7 +2,8 @@ const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
             // Variables
-            contactos: []
+            contactos: [],
+            id: null
         },
         actions: {
             // Funciones
@@ -44,33 +45,29 @@ const getState = ({ getStore, getActions, setStore }) => {
                 .then(data => data)
                 .catch(error => console.log(error))
             },
-            eliminarContacto:(name, phone, email, address) => {
+            eliminarContacto:(id) => {
                 const nombreUsuario = 'Javier-Pintado';
-                fetch(`https://playground.4geeks.com/contact/agendas/${nombreUsuario}/delete`, {
+                fetch(`https://playground.4geeks.com/contact/agendas/${nombreUsuario}/contacts/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json'
                     }
                 })
                 .then(resp => {
-                    if (resp.ok) { // Si la eliminación es exitosa
-                        // Eliminar el contacto del store local después de la eliminación exitosa
-                        const store = getStore();
-                        const nuevosContactos = store.contactos.filter(contacto => contacto.id !== contactId); // Filtra el contacto eliminado
-                        setStore({ contactos: nuevosContactos }); // Actualiza el store local con los contactos restantes
-                    }
+                  if (resp.ok) {
+                    traerContactos();
+                  }  
                 })
                 .catch(error => console.log(error)); // Manejo de errores
             },
             editarContacto: (contactId, name, phone, email, address) => { // Añadir la función editarContacto
                 const nombreUsuario = 'Javier-Pintado';
-                fetch(`https://playground.4geeks.com/contact/agendas/${nombreUsuario}/put`, { // Realiza una solicitud PUT a la API para editar el contacto específico
+                fetch(`https://playground.4geeks.com/contact/agendas/${nombreUsuario}/contacts/${contactId}`, { // Realiza una solicitud PUT a la API para editar el contacto específico
                     method: 'PUT', // Método PUT
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        agenda_slug: nombreUsuario,
                         name: name,
                         phone: phone,
                         email: email,
@@ -78,15 +75,15 @@ const getState = ({ getStore, getActions, setStore }) => {
                     })
                 })
                 .then(resp => resp.json())
-                .then(updatedContact => {
-                    const store = getStore();
-                    const updatedContactos = store.contactos.map(contacto =>
-                        contacto.id === contactId ? updatedContact : contacto // Actualiza el contacto en el store local
-                    );
-                    setStore({ contactos: updatedContactos }); // Actualiza el store local con el contacto editado
+                .then(data => {
+                    console.log(data)
                 })
                 .catch(error => console.log(error)); // Manejo de errores
+            },
+            seleccionarContacto: (id) => {
+                setStore({id: id})
             }
+
         }
     };
 };

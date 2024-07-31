@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Context } from "../store/appContext";
 import { useContext } from "react";
-const AñadirContacto = () => {
+const EditarContacto = () => {
     const [name, setName] = useState("")
     const [phone, setPhone] = useState("")
     const [email, setEmail] = useState("")
@@ -10,7 +10,7 @@ const AñadirContacto = () => {
     return (
         
         <div className="row">
-            <h2 className="text-center">Añadir Contacto</h2>
+            <h2 className="text-center">Editar Contacto</h2>
             
             <div className="text-center">
                 <label className=" col-12 mt-2 ms">Nombre</label>
@@ -25,14 +25,14 @@ const AñadirContacto = () => {
                 <label className="  col-12 mt-2">Address</label>
                 <input className="col-8" type="text" onChange={(evento) => setAddress(evento.target.value)} />
                 
-                <button className=" btn btn-primary mt-2 color-danger col-8" onClick={() => actions.crearContacto(name, phone, email, address)}>Añadir</button>
+                <button className=" btn btn-primary mt-2 color-danger col-8" onClick={() => actions.editarContacto( store.id, name, phone, email, address)}>Añadir</button>
             </div>
            
            
         </div>
     )
 }
-export default AñadirContacto
+export default EditarContacto;
 
 
 
