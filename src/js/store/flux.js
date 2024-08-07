@@ -3,7 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         store: {
             // Variables
             contactos: [],
-            id: null
+            contactoSeleccionado:{}
         },
         actions: {
             // Funciones
@@ -47,15 +47,17 @@ const getState = ({ getStore, getActions, setStore }) => {
             },
             eliminarContacto:(id) => {
                 const nombreUsuario = 'Javier-Pintado';
+                const actions = getActions()
                 fetch(`https://playground.4geeks.com/contact/agendas/${nombreUsuario}/contacts/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'Content-Type': 'application/json'
                     }
                 })
+                
                 .then(resp => {
                   if (resp.ok) {
-                    traerContactos();
+                    actions.traerContactos();
                   }  
                 })
                 .catch(error => console.log(error)); // Manejo de errores
@@ -80,8 +82,8 @@ const getState = ({ getStore, getActions, setStore }) => {
                 })
                 .catch(error => console.log(error)); // Manejo de errores
             },
-            seleccionarContacto: (id) => {
-                setStore({id: id})
+            seleccionarContacto: (name, email, phone, address, id) => {
+                setStore({contactoSeleccionado:{name:name, email:email, phone:phone, address:address, id:idvb}})
             }
 
         }

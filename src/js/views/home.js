@@ -5,6 +5,7 @@ import { Context } from "../store/appContext";
 import { useContext } from "react"
 import Card from "../component/Card.jsx";
 import AñadirContacto from "./AñadirContacto.jsx";
+import { Navbar } from "../component/navbar.js";
 
 export const Home = () => {
 	const { store, actions } = useContext(Context)
@@ -18,16 +19,22 @@ export const Home = () => {
 		
 		
 	}, [])
+	useEffect( () => {
+
+		console.log(store.contactos);
+		
+		
+	}, [store.contactos])
 
 	return(
 		<div className="text-center mt-5">
+			<Navbar/>
 			<link to="/AñadirContacto">
 				
 			</link>
 			<h1>Lista de contactos</h1>
 			{store.contactos.map((contacto) => 
 				<Card 
-					className="container-text-center"
 					name={contacto.name} 
 					phone={contacto.phone} 
 					address={contacto.address} 

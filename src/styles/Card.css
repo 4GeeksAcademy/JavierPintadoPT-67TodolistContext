@@ -1,7 +1,34 @@
-.javi{
+.imagen{
     width: 200px;
     height: 200px;
     background-size: cover;
     border-radius: 50%;
     margin: 0 auto;
+}
+
+.carta{
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    margin-left: 1rem;
+    
+    width: 300%;
+}
+
+.nombre{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+
+.datos{
+    font-family: fantasy;
+}
+
+.lapiz{
+    margin: 15px;
+}
+
+.basura{
+    margin: 15px;
 }

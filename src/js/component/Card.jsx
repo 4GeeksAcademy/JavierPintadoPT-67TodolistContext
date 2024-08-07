@@ -2,34 +2,42 @@ import React, { useState } from "react";
 import { Context } from "../store/appContext";
 import { useContext } from "react"
 import { useNavigate } from "react-router";
+import "../../styles/Card.css";
+ 
+
 
 const Card = ({name, email, phone, address, id}) => {
     
     const { store, actions } = useContext(Context)
     const navigate = useNavigate();
-    const handleEditar =(id) => {
-       actions.seleccionarContacto(id);
+    const handleEditar =(name, email, phone, address, id) => {
+       actions.seleccionarContacto(name, email, phone, address, id);
         navigate("/EditarContacto");
     }
     return (
-        <div className=" card mt-5"style={{width: "28rem"}}>
+        <div className=" carta mt-5"style={{width: "28rem"}}>
             
-            <img src="https://cdn.pixabay.com/photo/2016/11/23/00/57/adult-1851571_1280.jpg" className="card-img-top javi" alt="..."/>
+            <img src="https://cdn.pixabay.com/photo/2016/11/23/00/57/adult-1851571_1280.jpg" className="card-img-top imagen" alt="..."/>
             
-                <div className=" text-center card-body">
-                    <h5 className="card-title">{name}</h5>
+                <div className="text-center card-body">
                     
-                    <p className="card-text">{email}</p>
-                    <p className="card-text">{phone}</p>
-                    <p className="card-text">{address}</p>
+                    <div className="row">
+                        <h5 className="  ms-5 col-2 nombre card-title">{name}</h5>
+                       
+                        <i onClick={() => actions.handleEditar(id) }
+                        className=" col-2 lapiz fas fa-pencil-alt">
+                        </i>
+                        
+                        <i onClick={() => actions.eliminarContacto(id) }
+                        className=" col-2 basura fas fa-trash-alt">
+                        </i>
+                    </div>
                     
-                    <i onClick={() => actions.eliminarContacto(id)}
-                        className="fas fa-trash-alt">
-                    </i>
-                    <i onClick={() => handleEditar(id) }
+                    <p className=" datos card-text">{email}</p>
+                    <p className="datos card-text">{phone}</p>
+                    <p className=" datos card-text">{address}</p>
                     
-                        className="fas fa-pencil-alt">
-                    </i>
+                   
                    
                 </div>
         </div>
