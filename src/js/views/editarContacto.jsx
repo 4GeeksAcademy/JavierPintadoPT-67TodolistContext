@@ -3,11 +3,14 @@ import { Context } from "../store/appContext";
 import { useContext } from "react";
 
 const EditarContacto = () => {
+    const { store, actions } = useContext(Context)
     const [name, setName] = useState(store.contactoSeleccionado.name)
     const [phone, setPhone] = useState(store.contactoSeleccionado.phone)
     const [email, setEmail] = useState(store.contactoSeleccionado.email)
     const [address, setAddress] = useState(store.contactoSeleccionado.address)
-    const { store, actions } = useContext(Context)
+
+    console.log(store.contactoSeleccionado)
+    
     
     return (
         

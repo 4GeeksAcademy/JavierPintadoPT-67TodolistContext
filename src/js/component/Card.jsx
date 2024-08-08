@@ -8,12 +8,16 @@ import "../../styles/Card.css";
 
 const Card = ({name, email, phone, address, id}) => {
     
+    
     const { store, actions } = useContext(Context)
     const navigate = useNavigate();
     const handleEditar =(name, email, phone, address, id) => {
        actions.seleccionarContacto(name, email, phone, address, id);
         navigate("/EditarContacto");
+        
     }
+
+    console.log(store.contactoSeleccionado)
     return (
         <div className=" carta mt-5"style={{width: "28rem"}}>
             
@@ -24,7 +28,7 @@ const Card = ({name, email, phone, address, id}) => {
                     <div className="row">
                         <h5 className="  ms-5 col-2 nombre card-title">{name}</h5>
                        
-                        <i onClick={() => actions.handleEditar(id) }
+                        <i onClick={() => handleEditar(id) }
                         className=" col-2 lapiz fas fa-pencil-alt">
                         </i>
                         

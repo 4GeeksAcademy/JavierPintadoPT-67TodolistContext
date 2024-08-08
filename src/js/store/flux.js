@@ -3,7 +3,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         store: {
             // Variables
             contactos: [],
-            contactoSeleccionado:{}
+            contactoSeleccionado:{},
         },
         actions: {
             // Funciones
@@ -83,7 +83,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 .catch(error => console.log(error)); // Manejo de errores
             },
             seleccionarContacto: (name, email, phone, address, id) => {
-                setStore({contactoSeleccionado:{name:name, email:email, phone:phone, address:address, id:idvb}})
+                setStore({contactoSeleccionado:{name:name, email:email, phone:phone, address:address, id:id}})
             }
 
         }
