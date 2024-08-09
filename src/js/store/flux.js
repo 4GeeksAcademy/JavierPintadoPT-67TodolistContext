@@ -79,6 +79,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 .then(resp => resp.json())
                 .then(data => {
                     console.log(data)
+                    getActions().traerContactos();
                 })
                 .catch(error => console.log(error)); // Manejo de errores
             },

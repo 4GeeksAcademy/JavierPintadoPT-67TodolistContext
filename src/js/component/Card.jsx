@@ -23,19 +23,21 @@ const Card = ({name, email, phone, address, id}) => {
             
             <img src="https://cdn.pixabay.com/photo/2016/11/23/00/57/adult-1851571_1280.jpg" className="card-img-top imagen" alt="..."/>
             
-                <div className="text-center card-body">
-                    
-                    <div className="row">
-                        <h5 className="  ms-5 col-2 nombre card-title">{name}</h5>
-                       
-                        <i onClick={() => handleEditar(id) }
-                        className=" col-2 lapiz fas fa-pencil-alt">
-                        </i>
+                <div className="card-body">
+                    <div container>
+                        <div className="row">
+                            <h5 className="  ms-5 col-2 nombre card-title">{name}</h5>
                         
-                        <i onClick={() => actions.eliminarContacto(id) }
-                        className=" col-2 basura fas fa-trash-alt">
-                        </i>
+                            <i onClick={() => handleEditar(name, email, phone, address, id) }
+                            className=" col-2 lapiz fas fa-pencil-alt">
+                            </i>
+                            
+                            <i onClick={() => actions.eliminarContacto(id) }
+                            className=" col-2 basura fas fa-trash-alt">
+                            </i>
+                        </div>
                     </div>
+                   
                     
                     <p className=" datos card-text">{email}</p>
                     <p className="datos card-text">{phone}</p>
