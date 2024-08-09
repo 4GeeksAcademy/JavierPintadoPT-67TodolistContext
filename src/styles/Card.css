@@ -1,9 +1,10 @@
 .imagen{
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     background-size: cover;
     border-radius: 50%;
     margin: 0 auto;
+    margin-top: 15px;
 }
 
 .carta{
